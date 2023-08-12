@@ -28,10 +28,19 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
+<!-- Configuración del ViewResolver para Thymeleaf -->
+    <beans:bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <beans:property name="templateEngine" ref="templateEngine" />
+    </beans:bean>
+
+    <!-- Configuración del TemplateEngine de Thymeleaf -->
+    <beans:bean id="templateEngine" class="org.thymeleaf.spring5.SpringTemplateEngine">
+        <!-- Configuración del template resolver y otras opciones -->
+    </beans:bean>
     <!--
         Escanéa el Classpath en búsqueda de anotaciones como @Component, @Repository, @Service,
         @Controller, etc.
     -->
-    <context:component-scan base-package="cl.portafolio.arcorVentas" />
+    <context:component-scan base-package="model.controller" />
 
 </beans:beans>
