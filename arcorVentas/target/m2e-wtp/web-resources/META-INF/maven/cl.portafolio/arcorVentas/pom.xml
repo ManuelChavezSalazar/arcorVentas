@@ -102,11 +102,11 @@
         </dependency>
 
         <!-- Java Standard Tag Library -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>${javax.servlet.jstl-version}</version>
-        </dependency>
+       <dependency>
+    	<groupId>javax.servlet</groupId>
+   			<artifactId>jstl</artifactId>
+   			<version>1.2</version> <!-- Cambia esto a la versión específica de JSTL -->
+		</dependency>
 
         <!-- MySQL Connector -->
         <dependency>

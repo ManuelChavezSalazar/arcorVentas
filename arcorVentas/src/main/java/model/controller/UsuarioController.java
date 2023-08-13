@@ -1,5 +1,7 @@
 package model.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,5 +25,13 @@ public class UsuarioController {
         usuarioService.crearUsuario(usuario);
         return "redirect:/CrearUsuario"; // Redirige después de crear el usuario
     }
+    
+    @RequestMapping("/ListarUsuarios")
+    public String listarUsuarios(Model model) {
+        List<Usuario> usuarios = usuarioService.obtenerTodosLosUsuarios(); // Cambia esto según tu lógica de servicio
+        model.addAttribute("usuarios", usuarios);
+        return "listarUsuarios";
+    }
+
 
 }
