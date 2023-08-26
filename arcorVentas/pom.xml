@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -105,7 +104,7 @@
        <dependency>
     	<groupId>javax.servlet</groupId>
    			<artifactId>jstl</artifactId>
-   			<version>1.2</version> <!-- Cambia esto a la versión específica de JSTL -->
+   			<version>${javax.servlet.jstl-version}</version>
 		</dependency>
 
         <!-- MySQL Connector -->
@@ -143,7 +142,7 @@
             <version>5.4.27.Final</version>
         </dependency>
 
-        <!-- Hibernate JPA 2.1 API -->
+      <!--   Hibernate JPA 2.1 API --> 
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
@@ -191,6 +190,14 @@
             <artifactId>spring-web</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
+        
+        <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+    <version>2.5.4</version>
+	</dependency>
+
+        
 
        <dependency>
     <groupId>org.thymeleaf</groupId>

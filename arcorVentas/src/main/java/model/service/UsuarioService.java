@@ -7,12 +7,16 @@ import org.springframework.stereotype.Service;
 
 
 import model.entity.Usuario;
+
 import model.repository.IUsuarioRepository;
+
 
 @Service
 public class UsuarioService {
     @Autowired
     private IUsuarioRepository usuarioRepository;
+    
+   
 
     public UsuarioService() {
         super();
@@ -25,6 +29,7 @@ public class UsuarioService {
     public List<Usuario> obtenerTodosLosUsuarios() {
         return usuarioRepository.findAll();
     }
+    
 }
 
     

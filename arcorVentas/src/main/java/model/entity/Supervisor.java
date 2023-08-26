@@ -1,25 +1,45 @@
 package model.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-public class Supervisor extends Usuario {
+@Entity
+@Table(name = "supervisores")
+public class Supervisor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idSupervisor")
     private int idSupervisor;
+
+    @Column(name = "nombreSupervisor")
     private String nombreSupervisor;
+
+    @Column(name = "correoSupervisor")
     private String correoSupervisor;
 
-    public Supervisor(String nombre, String apellido, int run, String tipo, int idSupervisor, String nombreSupervisor, String correoSupervisor) {
-        super(nombre, apellido, run, tipo);
-        this.idSupervisor = idSupervisor;
+    // Puedes agregar más atributos según tus necesidades
+
+    @OneToOne
+    @JoinColumn(name = "id_usuario") // Columna que hace referencia a la clave primaria en Usuarios
+    private Usuario usuario;
+
+    public Supervisor() {
+        // Constructor vacío por defecto
+    }
+
+    public Supervisor(String nombreSupervisor, String correoSupervisor) {
         this.nombreSupervisor = nombreSupervisor;
         this.correoSupervisor = correoSupervisor;
     }
 
-    public int getIdSupervisor() {
-        return idSupervisor;
-    }
-
-    public void setIdSupervisor(int idSupervisor) {
-        this.idSupervisor = idSupervisor;
-    }
+    // Getters y setters
 
     public String getNombreSupervisor() {
         return nombreSupervisor;
@@ -37,15 +57,11 @@ public class Supervisor extends Usuario {
         this.correoSupervisor = correoSupervisor;
     }
 
-    public void mostrarInformacionSupervisor() {
-        super.mostrarInformacion(); // Llamando al método de la clase padre
-        System.out.println("ID de Supervisor: " + idSupervisor);
-        System.out.println("Nombre de Supervisor: " + nombreSupervisor);
-        System.out.println("Correo de Supervisor: " + correoSupervisor);
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public static void main(String[] args) {
-        Supervisor supervisor1 = new Supervisor("Carlos", "Martínez", 24567890, "Supervisor", 101, "Carlos Supervisor", "carlos@example.com");
-        supervisor1.mostrarInformacionSupervisor();
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
