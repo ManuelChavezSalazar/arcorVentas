@@ -31,7 +31,7 @@ public class VendedorController {
     public String crearVendedor(@ModelAttribute("vendedor") Vendedor vendedor) {
         vendedorService.crearVendedor(vendedor);
         // Puedes agregar lógica adicional aquí si es necesario
-        return "crearVendedor"; // Nombre del archivo JSP sin la extensión ".jsp"
+        return "redirect:/"; // Nombre del archivo JSP sin la extensión ".jsp"
     }
 
 }
