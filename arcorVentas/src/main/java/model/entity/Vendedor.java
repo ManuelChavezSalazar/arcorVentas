@@ -1,7 +1,5 @@
 package model.entity;
 
-
-
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
@@ -36,7 +34,7 @@ public class Vendedor {
     private String fechaIngreso;
     
     @OneToOne // Relación One-to-One hacia la entidad Usuario
-    @JoinColumn(name = "id") // Columna que hace referencia a la clave primaria en Usuarios
+    @JoinColumn(name = "id_usuario") // Columna que hace referencia a la clave primaria en Usuarios
     private Usuario usuario;
 
     
@@ -88,9 +86,12 @@ public class Vendedor {
         this.fechaIngreso = fechaIngreso;
     }
 
-	public void setUsuario(Usuario usuario2) {
-		// TODO Auto-generated method stub
-		
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
 }

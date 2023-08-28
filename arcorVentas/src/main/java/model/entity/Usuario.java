@@ -67,8 +67,15 @@ public class Usuario  {
 	    public int getRun() {
 	        return run;
 	    }
+	    
 
-	    public void setRun(int run) {
+	    public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public void setRun(int run) {
 	        this.run = run;
 	    }
 

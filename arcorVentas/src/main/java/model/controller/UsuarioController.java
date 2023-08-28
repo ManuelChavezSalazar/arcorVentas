@@ -22,6 +22,14 @@ public class UsuarioController {
     @RequestMapping(path = "/CrearUsuario", method = RequestMethod.POST)
     public String crearUsuario(@ModelAttribute Usuario usuario) {
         UsuarioService.crearUsuario(usuario);
-        return "redirect:/"; // Redirecciona a la página principal u otra página según tus necesidades
+        if ("Vendedor".equals(usuario.getTipo())) {
+            return "redirect:/CrearVendedor"; // Redirige a la página de crearVendedor
+        } else if ("Supervisor".equals(usuario.getTipo())) {
+            return "redirect:/CrearSupervisor"; // Redirige a la página de crearSupervisor
+        } else if ("Administrativo".equals(usuario.getTipo())) {
+            return "redirect:/CrearAdministrativo"; // Redirige a la página de crearAdministrativo
+        } else {
+            return "redirect:/"; // Redirige a la página principal si el tipo no coincide
+        }
     }
 }

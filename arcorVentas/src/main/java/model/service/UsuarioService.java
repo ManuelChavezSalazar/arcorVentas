@@ -1,6 +1,7 @@
 package model.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,10 @@ public class UsuarioService {
 
     public UsuarioService() {
         super();
+    }
+    public Usuario obtenerUsuarioPorId(int id) {
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
+        return usuarioOptional.orElse(null);
     }
 
     public Usuario crearUsuario(Usuario usuario) {
